@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
     });
 });
 
+app.post('/create', (req, res) => {
+    fs.writeFile(`./files/${req.body.title.split(' ').join('_')}.txt`, req.body.details, (err) => {
+        res.redirect('/');
+    });
+});
+
 app.get('/files/:filename', (req, res) => {
     fs.readFile(`./files/${req.params.filename}`, 'utf8', (err, data) => {
         if (err) {
@@ -24,11 +30,7 @@ app.get('/files/:filename', (req, res) => {
     });
 });
 
-app.post('/create', (req, res) => {
-    fs.writeFile(`./files/${req.body.title.split(' ').join('_')}.txt`, req.body.details, (err) => {
-        res.redirect('/');
-    });
-});
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
