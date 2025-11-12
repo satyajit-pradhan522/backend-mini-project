@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10">
+        <a class="text-blue-500 inline-block mb-10" href="/">← Back to Tasks</a>
+      <div class="task-details max-w-3xl mx-auto bg-zinc-800 rounded p-6">
+        <form action="/edit" method="post">
+          <input
+            class="block outline-none rounded w-1/2 text-zinc-400 px-5 py-2 bg-zinc-700"
+            type="text"
+            placeholder="Previous Title"
+            name="previousTitle"
+            value="<%= filename %>"
+            readonly
+          />
+          <input
+            class="block mt-2 outline-none rounded w-1/2 text-white px-5 py-2 bg-zinc-700"
+            type="text"
+            placeholder="New Title"
+            name="newTitle"
+          />
+          <input
+            class="mt-2 text-black rounded bg-yellow-500 px-7 py-2"
+            type="submit"
+            value="Edit"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
